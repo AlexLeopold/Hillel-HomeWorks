@@ -1,21 +1,31 @@
-let operator = prompt('Введите оператор', '+ - * /');
-let firstOperand = +prompt('Введите число');
-let secondOperand = +prompt('Введите число');
-let result; 
-
-switch (operator) {
-   case '+' :
-   result = firstOperand + secondOperand;
-   break;
-   case '-' :
-   result = firstOperand - secondOperand;
-   break;
-   case '*' :
-   result = firstOperand * secondOperand;
-   break;
-   case '/' :
-   result = firstOperand / secondOperand;
-   break;
+let operator;
+let firstOperand;
+let secondOperand;
+do {
+   operator = prompt('Введите оператор', '+ - * /');
+} while (!
+   (operator == '+' ||
+   operator == '-' ||
+   operator == '*' || 
+   operator == '/' || 
+   operator == null));
+if (operator != null) {
+   firstOperand = +prompt('Введите число');
+   secondOperand = +prompt('Введите число');
+let calcResult = function (a, b) {
+   if (operator == '+') {
+      return a + b;
+   } else if (operator == '-') {
+      return a - b;
+   } else if (operator == '*') {
+      return a * b;
+   } else if (operator == '/') {
+      return a / b;
    }
+}
 
-alert(`${firstOperand} ${operator} ${secondOperand} = ${result}`);
+let fullExpresion = 
+`${firstOperand} ${operator} ${secondOperand} = ${calcResult(firstOperand, secondOperand)}`;
+
+alert(fullExpresion);
+}
