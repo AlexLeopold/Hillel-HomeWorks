@@ -14,7 +14,5 @@ let maxRumDay = consumption.reduce((acc, curr) => acc.rum > curr.rum ? acc : cur
 
 console.log(consumption);
 
-console.log(`На ${maxMeatDay.day} было сьеденно больше всего мяса, 
-На ${maxRumDay.day} было выпито большего всего рома`);
-
-console.log(maxMeatDay, maxRumDay);
+console.log(`На ${maxMeatDay.day} было сьеденно больше всего мяса - ${maxMeatDay.meat}, 
+На ${maxRumDay.day} было выпито большего всего рома - ${maxRumDay.rum}`);
