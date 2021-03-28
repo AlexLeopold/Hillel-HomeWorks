@@ -7,33 +7,31 @@ let students = [
    { name: 'Legolas', grades: [8,7,8,9,8,9,9]},
    { name: 'Aragorn', grades: [9,9,10,12,10,8,9]},
  ];
-let best = 0;
-let worst = 12;
+ let best, worst;
 
-function calcAvGrade () {
-   for (i = 0; i < students.length; i++) {
-      key = students[i];
-      total = key.grades.reduce((sum, cur) => (sum + cur));
-      average = total / key.grades.length;
-      key['av'] = average;
-      console.log(`${key.name}'s average grade is ${average}`);
-      if (key.av > best) {
-         best = key.av;
-      } else if (key.av < worst) {
-         worst = key.av;
-   }}
-};
-
-function chooseBestAndWorstStudent () {
-for (i = 0; i < students.length; i++) {
-   if (students[i].av == best) {
-      console.log(`Best student - ${students[i].name} = ${students[i].av}`)
-   } else if (students[i].av == worst) {
-      console.log(`Worst student - ${students[i].name} = ${students[i].av}`)
-   }};
-};
-
-calcAvGrade();
-chooseBestAndWorstStudent();
-
-// Немного по молдавски сделано, но хотя бы работае..)
+ calcAvGrade();
+ findBestAndWorstStudent();
+ 
+ console.log(`Best student - ${best.name} = ${best.average}`);
+ console.log(`Worst student - ${worst.name} = ${worst.average}`); 
+ 
+ function calcAvGrade () {
+    for (let key of students) {
+       total = key.grades.reduce((sum, cur) => (sum + cur));
+       average = total / key.grades.length;
+       key['average'] = average;
+       console.log(`${key.name}'s average grade is ${average}`);
+    }
+ };
+ 
+ function findBestAndWorstStudent () {
+    best = worst = students[0];
+    for (let i = 1; i < students.length; i++) {
+       if(best.average < students[i].average) {
+          best = students[i];
+       }
+       if(worst.average > students[i].average) {
+          worst = students[i];
+       }
+    }
+ }
