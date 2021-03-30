@@ -1,5 +1,7 @@
 let consumption = [];
 let days = 7;
+let maxMeatDay;
+let maxRumDay;
 
 for (i = 1; i <= days; i++) {
    consumption.push({
@@ -9,8 +11,11 @@ for (i = 1; i <= days; i++) {
    })
 }
 
-let maxMeatDay = consumption.reduce((acc, curr) => acc.meat > curr.meat ? acc : curr);
-let maxRumDay = consumption.reduce((acc, curr) => acc.rum > curr.rum ? acc : curr);
+consumption.reduce((acc,curr) => {
+   maxMeatDay = acc.meat > curr.meat ? acc : curr;
+   maxRumDay = acc.rum > curr.rum ? acc : curr;
+   return maxMeatDay, maxRumDay;
+});
 
 console.log(consumption);
 
