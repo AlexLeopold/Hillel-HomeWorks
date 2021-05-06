@@ -1,0 +1,22 @@
+.container {
+   border: 1px solid grey;
+}
+
+.mainBlock {
+   margin-top: 10px;
+   display: flex;
+   justify-content: center;
+}
+
+.actionBTN {
+   margin-left: 10px;
+}
+
+.remove {
+   margin-left: 3px;
+}
+
+.Done {
+   color: rgb(150, 150, 150);
+   text-decoration: line-through;
+}

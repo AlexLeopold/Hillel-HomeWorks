@@ -1,0 +1,41 @@
+#container {
+   margin-left: 30%;
+   padding: 0;
+   background-color:lightgrey;
+   width: 250px;
+   height: 150px;
+   text-align: center;
+}
+
+h3 {
+   padding-top: 20px;
+}
+
+footer {
+   height: 40px;
+   margin-top: 40px;
+   font-size: smaller;
+}
+
+#inputed {
+   width: 80px;
+}
+
+button {
+   background-color: darkgrey;
+   border: 0;
+   width: 21px;
+   height: 21px;
+}
+
+button:hover {
+   background: rgb(187, 186, 186)
+}
+
+button:not(#plus) {
+   margin-left: 10px;
+}
+
+button:not(#equal, #clear) {
+   margin-top: 20px;
+}

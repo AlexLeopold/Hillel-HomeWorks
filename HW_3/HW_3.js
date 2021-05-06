@@ -43,4 +43,3 @@ function operatorToSymbol (x) {
          return a * b;
       }
    };
-   
