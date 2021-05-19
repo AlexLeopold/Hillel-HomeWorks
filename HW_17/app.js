@@ -1,19 +1,15 @@
+const PLP = document.getElementById('container');
+let template = '';
+
 window.onload = () => {
     console.log('app started.', DATABASE);
-    const PLP = document.getElementById('container');
     let filter = document.getElementById('filterBy');
-    let template = '';
 
-    DATABASE.forEach(item => {
-      let element = new Render('template', item);
-      template += element.render();
-    });
-    PLP.innerHTML = template;
-    manageQuantity()
+    newRender();
 
     filter.addEventListener('change', function (e) {
       let filteredBy = e.target.value;
-      let template = '';
+      template = '';
       PLP.innerHTML = '';
     
       DATABASE.sort(function(a, b) {
@@ -24,12 +20,7 @@ window.onload = () => {
         return 0;
       });
     
-      DATABASE.forEach(item => {
-        let element = new Render('template', item);
-        template += element.render();
-      });
-      PLP.innerHTML = template;
-      manageQuantity()
+      newRender();
     })
 };
 
@@ -47,10 +38,19 @@ class Render {
   }
 }
 
+function newRender () {
+  DATABASE.forEach(item => {
+    let element = new Render('template', item);
+    template += element.render();
+  });
+  PLP.innerHTML = template;
+  manageQuantity();
+}
+
 function manageQuantity () {
   let contentQuantity = document.querySelectorAll('.plp__content--quantity');
   for(let key in contentQuantity) {
-    if(contentQuantity.hasOwnProperty(key))
+    if(contentQuantity.hasOwnProperty(key)) {
     contentQuantity[key].addEventListener('click', e => {
     let targ = e.target;
     let i = targ.parentElement.querySelector('.js-selector-quantity');
@@ -61,5 +61,5 @@ function manageQuantity () {
           i.innerText--
         }
       }
-  })
+  })}
 }}
