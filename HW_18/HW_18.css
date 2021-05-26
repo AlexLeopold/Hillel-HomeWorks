@@ -1,0 +1,13 @@
+.mainBlock {
+   background-color: rgb(240, 240, 240);
+   width: 1400px;
+   height: 700px;
+   display: flex;
+   margin: 20px auto;
+}
+
+img {
+   width: auto;
+   height: 84.5px;
+   margin-left: 5px;
+}
